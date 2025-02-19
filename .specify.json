@@ -15,6 +15,66 @@
           }
         }
       ]
+    },
+    {
+      "name": "Colors",
+      "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "types": ["color"]
+          }
+        },
+        {
+          "name": "to-scss",
+          "options": {
+            "formatter": "scss/variables"
+          }
+        }
+      ],
+      "output": {
+        "type": "file",
+        "filePath": "styles/colors.scss"
+      }
+    },
+    {
+      "name": "Typography",
+      "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "types": ["textStyle"]
+          }
+        },
+        {
+          "name": "to-scss",
+          "options": {
+            "formatter": "scss/mixins"
+          }
+        }
+      ],
+      "output": {
+        "type": "file",
+        "filePath": "styles/typography.scss"
+      }
+    },
+    {
+      "name": "Font Files",
+      "parsers": [
+        {
+          "name": "filter",
+          "options": {
+            "types": ["font"]
+          }
+        },
+        {
+          "name": "to-font-file"
+        }
+      ],
+      "output": {
+        "type": "directory",
+        "directoryPath": "fonts"
+      }
     }
   ]
 }
