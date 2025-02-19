@@ -1,6 +1,6 @@
 {
   "repository": "@bitovidesign/designdemo",
-  "head": "specify-json",
+  "head": "main",
   "base": "main",
   "version": "2",
   "rules": [
