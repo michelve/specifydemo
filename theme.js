@@ -6,34 +6,34 @@ module.exports = {
         'Color styles-Test colour style': 'linear-gradient(0deg, rgba(217, 217, 217, 0) 0%, rgb(179, 244, 255) 32.499998807907104%, rgb(0, 0, 0) 100%)'
       },
       fontFamily: {
+        'Text styles-Button': 'Inter',
         'Text styles-Input label': 'Inter',
-        'Text styles-Input text': 'Inter',
-        'Text styles-Button': 'Inter'
+        'Text styles-Input text': 'Inter'
       },
       fontWeight: {
+        'Text styles-Button': 'medium',
         'Text styles-Input label': 'medium',
-        'Text styles-Input text': 'regular',
-        'Text styles-Button': 'medium'
+        'Text styles-Input text': 'regular'
       },
       textIndent: {
+        'Text styles-Button': '0px',
         'Text styles-Input label': '0px',
-        'Text styles-Input text': '0px',
-        'Text styles-Button': '0px'
+        'Text styles-Input text': '0px'
       },
       fontSize: {
+        'Text styles-Button': '18px',
         'Text styles-Input label': '20px',
-        'Text styles-Input text': '16px',
-        'Text styles-Button': '18px'
+        'Text styles-Input text': '16px'
       },
       lineHeight: {
+        'Text styles-Button': '20px',
         'Text styles-Input label': '24px',
-        'Text styles-Input text': '20px',
-        'Text styles-Button': '20px'
+        'Text styles-Input text': '20px'
       },
       letterSpacing: {
+        'Text styles-Button': '0%',
         'Text styles-Input label': '0%',
-        'Text styles-Input text': '0%',
-        'Text styles-Button': '0%'
+        'Text styles-Input text': '0%'
       },
       spacing: {
         'base-base-radius-lg': '12px',
