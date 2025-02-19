@@ -5,146 +5,95 @@
   "repository": "@bitovidesign/designdemo",
   "rules": [
     {
-      "name": "Generate colors in HSL",
+      "name": "Base Colors",
+      "path": "./output/styles/base.scss",
+      "filter": {
+        "types": ["color"],
+        "families": ["base"]
+      },
       "parsers": [
         {
-          "name": "filter",
+          "name": "to-scss-variables",
           "options": {
-            "query": {
-              "where": {
-                "token": ".*",
-                "withTypes": {
-                  "include": [
-                    "color"
-                  ]
-                },
-                "select": {
-                  "parents": true
-                }
-              }
+            "formatName": "camelCase",
+            "formatTokens": {
+              "color": "hex"
             }
-          }
-        },
-        {
-          "name": "convert-color",
-          "options": {
-            "toFormat": "hsl",
-            "applyTo": {
-              "collection": true
-            }
-          }
-        },
-        {
-          "name": "change-case",
-          "options": {
-            "change": "names",
-            "toCase": "kebabCase",
-            "applyTo": {
-              "collection": true
-            }
-          }
-        },
-        {
-          "name": "change-case",
-          "options": {
-            "change": "modes",
-            "toCase": "kebabCase",
-            "applyTo": {
-              "collection": true
-            }
-          }
-        },
-        {
-          "name": "to-css-custom-properties",
-          "output": {
-            "type": "file",
-            "filePath": "tokens.css"
           }
         }
       ]
     },
     {
-      "name": "Generate text styles as CSS classes",
+      "name": "Brand Colors",
+      "path": "./output/styles/brand.scss",
+      "filter": {
+        "types": ["color"],
+        "families": ["brand"]
+      },
       "parsers": [
         {
-          "name": "filter",
+          "name": "to-scss-variables",
           "options": {
-            "query": {
-              "where": {
-                "token": ".*",
-                "withTypes": {
-                  "include": [
-                    "textStyle"
-                  ]
-                },
-                "select": {
-                  "token": true
-                }
-              }
+            "formatName": "camelCase",
+            "formatTokens": {
+              "color": "hex"
             }
-          }
-        },
-        {
-          "name": "change-case",
-          "options": {
-            "toCase": "kebabCase",
-            "applyTo": {
-              "token": true
-            }
-          }
-        },
-        {
-          "name": "make-line-height-relative",
-          "options": {}
-        },
-        {
-          "name": "convert-dimension",
-          "options": {
-            "applyToKeys": {
-              "textStyle": [
-                "fontSize"
-              ]
-            },
-            "toFormat": "rem"
-          }
-        },   
-        {
-          "name": "to-css-text-style",
-          "output": {
-            "type": "file",
-            "filePath": "public/text-styles.scss"
-          },
-          "options": {
-            "genericFamily": "sans-serif",
-            "tokenNameTemplate": "text-style-{{token}}"
           }
         }
       ]
     },
     {
-      "name": "Optimize and transform vectors with svgo + Generate SVG files",
+      "name": "Global Colors",
+      "path": "./output/styles/global.scss",
+      "filter": {
+        "types": ["color"],
+        "families": ["global"]
+      },
       "parsers": [
         {
-          "name": "svgo",
-          "output": {
-            "type": "directory",
-            "directoryPath": "output/assets"
-          },
+          "name": "to-scss-variables",
           "options": {
-            "svgo": {
-              "plugins": [
-                {
-                  "name": "removeDimensions"
-                },
-                {
-                  "name": "convertColors",
-                  "params": {
-                    "currentColor": true
-                  }
-                }
-              ]
+            "formatName": "camelCase",
+            "formatTokens": {
+              "color": "hex"
             }
           }
+        }
+      ]
+    },
+    {
+      "name": "Text Styles",
+      "path": "./output/styles/text-styles.scss",
+      "filter": {
+        "types": ["textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-scss-mixins"
+        }
+      ]
+    },
+    {
+      "name": "Fonts",
+      "path": "./output/assets/fonts",
+      "filter": {
+        "types": ["font"]
+      },
+      "parsers": [
+        {
+          "name": "convert-font",
+          "options": {
+            "formats": ["woff", "woff2"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "All Tokens JSON",
+      "path": "./output/tokens/all-tokens.json",
+      "parsers": [
+        {
+          "name": "to-json"
         }
       ]
     }
