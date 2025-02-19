@@ -1,99 +1,71 @@
 {
-  "version": "2",
-  "head": "specifyrc-json",
-  "base": "main",
-  "repository": "@bitovidesign/designdemo",
+  "source": ["specify://"],
+  "parsers": [
+    {
+      "name": "sort-by",
+      "options": {
+        "keys": ["name"]
+      }
+    }
+  ],
+  "formats": [
+    {
+      "name": "scss/variables",
+      "formatter": "scss/variables"
+    },
+    {
+      "name": "scss/mixins",
+      "formatter": "scss/mixins"
+    }
+  ],
+  "destinations": [
+    {
+      "name": "GitHub",
+      "mode": "pull-request",
+      "repository": "@bitovidesign/designdemo",
+      "branch": "main",
+      "directory": "styles"
+    }
+  ],
   "rules": [
     {
-      "name": "Base Colors",
-      "path": "./output/styles/base.scss",
-      "filter": {
-        "types": ["color"],
-        "families": ["base"]
-      },
+      "name": "Colors",
+      "path": "styles/colors.scss",
       "parsers": [
         {
-          "name": "to-scss-variables",
+          "name": "filter",
           "options": {
-            "formatName": "camelCase",
-            "formatTokens": {
-              "color": "hex"
-            }
+            "types": ["color"]
           }
         }
-      ]
+      ],
+      "format": "scss/variables"
     },
     {
-      "name": "Brand Colors",
-      "path": "./output/styles/brand.scss",
-      "filter": {
-        "types": ["color"],
-        "families": ["brand"]
-      },
+      "name": "Typography",
+      "path": "styles/typography.scss",
       "parsers": [
         {
-          "name": "to-scss-variables",
+          "name": "filter",
           "options": {
-            "formatName": "camelCase",
-            "formatTokens": {
-              "color": "hex"
-            }
+            "types": ["textStyle"]
           }
         }
-      ]
+      ],
+      "format": "scss/mixins"
     },
     {
-      "name": "Global Colors",
-      "path": "./output/styles/global.scss",
-      "filter": {
-        "types": ["color"],
-        "families": ["global"]
-      },
+      "name": "Font Files",
+      "path": "fonts",
       "parsers": [
         {
-          "name": "to-scss-variables",
+          "name": "filter",
           "options": {
-            "formatName": "camelCase",
-            "formatTokens": {
-              "color": "hex"
-            }
+            "types": ["font"]
           }
-        }
-      ]
-    },
-    {
-      "name": "Text Styles",
-      "path": "./output/styles/text-styles.scss",
-      "filter": {
-        "types": ["textStyle"]
-      },
-      "parsers": [
+        },
         {
-          "name": "to-scss-mixins"
-        }
-      ]
-    },
-    {
-      "name": "Fonts",
-      "path": "./output/assets/fonts",
-      "filter": {
-        "types": ["font"]
-      },
-      "parsers": [
-        {
-          "name": "convert-font",
-          "options": {
-            "formats": ["woff", "woff2"]
-          }
-        }
-      ]
-    },
-    {
-      "name": "All Tokens JSON",
-      "path": "./output/tokens/all-tokens.json",
-      "parsers": [
-        {
-          "name": "to-json"
+          "name": "to-font-file"
         }
       ]
     }
