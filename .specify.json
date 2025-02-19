@@ -42,6 +42,33 @@
           }
         }
       ]
+    },
+    {
+      "name": "Generate font imports",
+      "parsers": [
+        {
+          "name": "to-css-font-import",
+          "output": {
+            "type": "file",
+            "filePath": "public/fonts.css"
+          },
+          "options": {
+            "fontsPath": "assets/fonts/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Generate tokens as a Tailwind theme",
+      "parsers": [
+        {
+          "name": "to-tailwind",
+          "output": {
+            "type": "file",
+            "filePath": "theme.js"
+          }
+        }
+      ]
     }
   ]
 }
