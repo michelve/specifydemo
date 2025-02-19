@@ -30,6 +30,18 @@
           }
         }
       ]
+    },
+    {
+      "name": "Generate Style Dictionary raw token files",
+      "parsers": [
+        {
+          "name": "to-style-dictionary",
+          "output": {
+            "type": "directory",
+            "directoryPath": "output/tokens"
+          }
+        }
+      ]
     }
   ]
 }
