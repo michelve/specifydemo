@@ -1,5 +1,6 @@
 {
   "repository": "@bitovidesign/designdemo",
+  "head": "specify-json",
   "base": "main",
   "version": "2",
   "rules": [
@@ -16,34 +17,19 @@
       ]
     },
     {
-      "name": "SCSS Variables",
+      "name": "Generate SCSS Maps and Mixins",
       "parsers": [
         {
-          "name": "to-scss",
+          "name": "to-scss-map",
+          "output": {
+            "type": "directory",
+            "directoryPath": "styles/tokens"
+          },
           "options": {
-            "formatter": "scss/variables"
+            "tokenNameTemplate": "{{path}}-{{token}}"
           }
         }
-      ],
-      "output": {
-        "type": "file",
-        "filePath": "styles/variables.scss"
-      }
-    },
-    {
-      "name": "SCSS Mixins",
-      "parsers": [
-        {
-          "name": "to-scss",
-          "options": {
-            "formatter": "scss/mixins"
-          }
-        }
-      ],
-      "output": {
-        "type": "file",
-        "filePath": "styles/mixins.scss"
-      }
+      ]
     }
   ]
 }
