@@ -1,0 +1,27 @@
+{
+  "name": "design-system-project",
+  "version": "1.0.0",
+  "description": "A design system project using Specify and Sass",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "sass src/scss:dist/css",
+    "specify:pull": "specify pull",
+    "specify:push": "specify push",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "design-system",
+    "specify",
+    "sass",
+    "css"
+  ],
+  "author": "Michel",
+  "license": "MIT",
+  "dependencies": {
+    "@specifyapp/cli": "^1.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.58.0"
+  }
+}
