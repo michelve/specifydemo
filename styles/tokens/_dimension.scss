@@ -1,0 +1,51 @@
+@use "sass:map";
+
+$dimension: (
+  base-base-radius-lg: 12px,
+  base-base-radius-md: 8px,
+  base-base-radius-sm: 4px,
+  base-base-size-2xl: 24px,
+  base-base-size-2xs: 1px,
+  base-base-size-lg: 12px,
+  base-base-size-md: 8px,
+  base-base-size-none: 0px,
+  base-base-size-sm: 4px,
+  base-base-size-xl: 16px,
+  base-base-size-xs: 2px,
+  base-base-font-linespacing-2xl: 32px,
+  base-base-font-linespacing-lg: 24px,
+  base-base-font-linespacing-md: 20px,
+  base-base-font-linespacing-xl: 28px,
+  base-base-font-size-2xl: 24px,
+  base-base-font-size-3xl: 32px,
+  base-base-font-size-lg: 18px,
+  base-base-font-size-md: 16px,
+  base-base-font-size-xl: 20px,
+  base-base-font-weight-bold: 800px,
+  base-base-font-weight-regular: 400px,
+  base-base-font-weight-semibold: 500px,
+  base-base-font-weight-thin: 100px,
+  global-global-animation-duration: 200px,
+  global-global-size-border-width: 1px,
+  global-global-size-shadow-blur: 4px,
+  global-global-size-shadow-spread: 0px,
+  global-global-size-shadow-xOffset: 0px,
+  global-global-size-shadow-yOffset: 2px,
+  specify-ver: 89px,
+);
+
+@function get-dimension($levels...) {
+  $fetched: $dimension;
+  @each $level in $levels {
+    @if map-has-key($fetched, $level) {
+      $fetched: map-get($fetched, $level);
+    } @else {
+      @error "There is no `#{$level}` in the `#{$dimension}` map";
+    }
+  }
+  @if type-of($fetched) != map {
+    @error "Non usable value. Got `#{$dimension}`";
+  }
+
+  @return $fetched;
+}

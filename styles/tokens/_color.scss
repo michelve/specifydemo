@@ -1,0 +1,52 @@
+@use "sass:map";
+
+$color: (
+  base-base-colour-blue-100: rgb(189, 221, 255),
+  base-base-colour-blue-200: rgb(139, 196, 255),
+  base-base-colour-blue-300: rgb(1, 119, 204),
+  base-base-colour-blue-400: rgb(0, 41, 76),
+  base-base-colour-grey-100: rgb(217, 217, 217),
+  base-base-colour-grey-200: rgb(191, 191, 191),
+  base-base-colour-grey-300: rgb(116, 116, 116),
+  base-base-colour-grey-400: rgb(40, 40, 40),
+  base-base-colour-pink-100: rgb(255, 198, 224),
+  base-base-colour-pink-200: rgb(255, 154, 203),
+  base-base-colour-pink-300: rgb(205, 0, 135),
+  base-base-colour-pink-400: rgb(77, 0, 48),
+  base-base-colour-static-black: rgb(0, 0, 0),
+  base-base-colour-static-black-10: rgba(0, 0, 0, 0.1),
+  base-base-colour-static-black-30: rgba(0, 0, 0, 0.3),
+  base-base-colour-static-black-50: rgba(0, 0, 0, 0.5),
+  base-base-colour-static-transparent: rgba(255, 255, 255, 0),
+  base-base-colour-static-white: rgb(255, 255, 255),
+  brand-brand-colour-accent-100: rgb(189, 221, 255),
+  brand-brand-colour-accent-200: rgb(139, 196, 255),
+  brand-brand-colour-accent-300: rgb(1, 119, 204),
+  brand-brand-colour-accent-400: rgb(0, 41, 76),
+  brand-brand-colour-primary-100: rgb(255, 198, 224),
+  brand-brand-colour-primary-200: rgb(255, 154, 203),
+  brand-brand-colour-primary-300: rgb(205, 0, 135),
+  brand-brand-colour-primary-400: rgb(77, 0, 48),
+  global-global-colour-iconOnLight: rgb(40, 40, 40),
+  global-global-colour-shadow: rgba(0, 0, 0, 0.3),
+  global-global-colour-textOnLight: rgb(40, 40, 40),
+  global-global-colour-action-background: rgb(205, 0, 135),
+  global-global-colour-action-iconOnBg: rgb(255, 255, 255),
+  global-global-colour-action-textOnBg: rgb(255, 255, 255),
+);
+
+@function get-color($levels...) {
+  $fetched: $color;
+  @each $level in $levels {
+    @if map-has-key($fetched, $level) {
+      $fetched: map-get($fetched, $level);
+    } @else {
+      @error "There is no `#{$level}` in the `#{$color}` map";
+    }
+  }
+  @if type-of($fetched) != map {
+    @error "Non usable value. Got `#{$color}`";
+  }
+
+  @return $fetched;
+}
