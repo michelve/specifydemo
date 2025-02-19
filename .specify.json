@@ -32,6 +32,21 @@
       ]
     },
     {
+      "name": "Generate text styles",
+      "parsers": [
+        {
+          "name": "to-css-text-style",
+          "output": {
+            "type": "file",
+            "filePath": "public/text-styles.scss"
+          },
+          "options": {
+            "genericFamily": "sans-serif"
+          }
+        }
+      ]
+    },
+    {
       "name": "Generate Style Dictionary raw token files",
       "parsers": [
         {
