@@ -13,6 +13,13 @@
             "type": "file",
             "filePath": "output/tokens.json"
           }
+        },
+        {
+          "name": "to-scss",
+          "output": {
+            "type": "file",
+            "filePath": "output/tokens.scss"
+          }
         }
       ]
     }
