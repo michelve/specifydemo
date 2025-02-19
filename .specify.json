@@ -16,14 +16,8 @@
       ]
     },
     {
-      "name": "Colors",
+      "name": "SCSS Variables",
       "parsers": [
-        {
-          "name": "filter",
-          "options": {
-            "types": ["color"]
-          }
-        },
         {
           "name": "to-scss",
           "options": {
@@ -33,18 +27,12 @@
       ],
       "output": {
         "type": "file",
-        "filePath": "styles/colors.scss"
+        "filePath": "styles/variables.scss"
       }
     },
     {
-      "name": "Typography",
+      "name": "SCSS Mixins",
       "parsers": [
-        {
-          "name": "filter",
-          "options": {
-            "types": ["textStyle"]
-          }
-        },
         {
           "name": "to-scss",
           "options": {
@@ -54,25 +42,7 @@
       ],
       "output": {
         "type": "file",
-        "filePath": "styles/typography.scss"
-      }
-    },
-    {
-      "name": "Font Files",
-      "parsers": [
-        {
-          "name": "filter",
-          "options": {
-            "types": ["font"]
-          }
-        },
-        {
-          "name": "to-font-file"
-        }
-      ],
-      "output": {
-        "type": "directory",
-        "directoryPath": "fonts"
+        "filePath": "styles/mixins.scss"
       }
     }
   ]
