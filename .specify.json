@@ -5,18 +5,6 @@
   "version": "2",
   "rules": [
     {
-      "name": "SDTF",
-      "parsers": [
-        {
-          "name": "to-sdtf",
-          "output": {
-            "type": "file",
-            "filePath": "output/tokens.json"
-          }
-        }
-      ]
-    },
-    {
       "name": "Generate SCSS Maps and Mixins",
       "parsers": [
         {
@@ -27,6 +15,18 @@
           },
           "options": {
             "tokenNameTemplate": "{{path}}-{{token}}"
+          }
+        },
+        {
+          "name": "to-scss-mixin",
+          "output": {
+            "type": "file",
+            "filePath": "styles/mixins.scss"
+          },
+          "options": {
+            "includeTypography": true,
+            "includeSpacing": true,
+            "includeColors": true
           }
         }
       ]
@@ -42,18 +42,6 @@
           },
           "options": {
             "genericFamily": "sans-serif"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Generate Style Dictionary raw token files",
-      "parsers": [
-        {
-          "name": "to-style-dictionary",
-          "output": {
-            "type": "directory",
-            "directoryPath": "output/tokens"
           }
         }
       ]
