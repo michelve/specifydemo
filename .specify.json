@@ -1,6 +1,5 @@
 {
   "repository": "@bitovidesign/designdemo",
-  "head": "main",
   "base": "main",
   "version": "2",
   "rules": [
@@ -27,48 +26,6 @@
             "includeTypography": true,
             "includeSpacing": true,
             "includeColors": true
-          }
-        }
-      ]
-    },
-    {
-      "name": "Generate text styles",
-      "parsers": [
-        {
-          "name": "to-css-text-style",
-          "output": {
-            "type": "file",
-            "filePath": "public/text-styles.scss"
-          },
-          "options": {
-            "genericFamily": "sans-serif"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Generate font imports",
-      "parsers": [
-        {
-          "name": "to-css-font-import",
-          "output": {
-            "type": "file",
-            "filePath": "public/fonts.css"
-          },
-          "options": {
-            "fontsPath": "assets/fonts/"
-          }
-        }
-      ]
-    },
-    {
-      "name": "Generate tokens as a Tailwind theme",
-      "parsers": [
-        {
-          "name": "to-tailwind",
-          "output": {
-            "type": "file",
-            "filePath": "theme.js"
           }
         }
       ]
